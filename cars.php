@@ -10,5 +10,12 @@
 </head>
 <body>
   <?php include 'header.php'; ?>
+  <py-script>
+  import sys
+  from pyscript import display
+
+
+  display(hello world)
+  </py-script>
 </body>
 </html>
