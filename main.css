@@ -1,0 +1,144 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body, html {
+  height: 100%;
+  overflow: hidden;
+}
+.triangles{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  .triangle {
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    overflow: hidden;
+    background-blend-mode: multiply;
+  }
+
+  .triangle:hover {
+    background-blend-mode: normal;
+    z-index: 10;
+  }
+
+  .triangle a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .triangle a::after {
+    content: attr(data-label);
+    position: absolute;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    transition: all 0.3s ease;
+    opacity: 0.9;
+  }
+
+  /* Top triangle (blue) */
+  .top {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background-image: url('images/apartments.jpg'), linear-gradient(rgba(0, 100, 255, 0.6), rgba(0, 100, 255, 0.6));
+    clip-path: polygon(0 0, 50% 100%, 100% 0);
+  }
+
+  .top:hover {
+    height: 60%;
+    clip-path: polygon(
+        0 0, 
+        45% 90%, 50% 100%, 55% 90%, 
+        100% 0
+    );
+  }
+
+  .top a::after {
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* Right triangle (yellow) */
+  .right {
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background-image: url('images/cars.jpg'), linear-gradient(rgba(255, 220, 0, 0.6), rgba(255, 220, 0, 0.6));
+    clip-path: polygon(100% 0, 0 50%, 100% 100%);
+  }
+
+  .right:hover {
+    width: 60%;
+    clip-path: polygon(
+        100% 0, 
+        10% 45%, 0 50%, 10% 55%, 
+        100% 100%
+    );
+  }
+
+  .right a::after {
+    left: 30%;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+  }
+
+  /* Bottom triangle (red) */
+  .bottom {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background-image: url('images/components.jpg'), linear-gradient(rgba(255, 50, 50, 0.6), rgba(255, 50, 50, 0.6));
+    clip-path: polygon(0 100%, 50% 0, 100% 100%);
+  }
+
+  .bottom:hover {
+    height: 60%;
+    clip-path: polygon(
+        0 100%, 
+        45% 10%, 50% 0, 55% 10%, 
+        100% 100%
+    );
+  }
+
+  .bottom a::after {
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* Left triangle (green) */
+  .left {
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-image: url('images/jobs.jpg'), linear-gradient(rgba(50, 200, 50, 0.6), rgba(50, 200, 50, 0.6));
+    clip-path: polygon(0 0, 100% 50%, 0 100%);
+  }
+
+  .left:hover {
+    width: 60%;
+    clip-path: polygon(
+        0 0, 
+        90% 45%, 100% 50%, 90% 55%, 
+        0 100%
+    );
+  }
+
+  .left a::after {
+    right: 30%;
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+  }
+}
